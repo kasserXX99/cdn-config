@@ -10,7 +10,7 @@ const loadIcons = () => {
 	console.log(icons);
 	// what should be passed is your app id in the seclector below
 	document.querySelector(
-		`label.ec-radiogroup__item--app_id-custom-app-61888039-1 div.ec-radiogroup__info:empty`
+		`label.ec-radiogroup__item--app_id-custom-app-76468716-1 div.ec-radiogroup__info:empty`
 	).innerHTML = icons;
 };
 
