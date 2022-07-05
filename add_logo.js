@@ -5,11 +5,17 @@ const loadIcons = () => {
 		"<div style='width:60px;'> <img style='max-width:100%; max-height:100px; margin-top:15px; margin-right:5px;' src='https://cdn.jsdelivr.net/gh/kasserXX99/cdn-config/assets/visa3.svg'></img> </div>",
 		"<div style='width:60px;'> <img style='max-width:100%; max-height:100px; margin-top:15px; margin-right:5px;' src='https://cdn.jsdelivr.net/gh/kasserXX99/cdn-config/assets/master3.svg'></img> </div></div>",
 	];
+	let apple_pay_icon;
+	let tem;
+	let browserName;
 	let userAgent = navigator.userAgent;
-	if (userAgent.match(/safari/i)) {
-		let apple_pay_icon =
+	if (userAgent.match(/chrome|chromium|crios/i)) {
+		browserName = 'chrome';
+	} else if (userAgent.match(/safari/i)) {
+		// if (userAgent.match(/safari/i)) {
+		apple_pay_icon =
 			"<div style='width:60px;'> <img style='max-width:210px; max-height:100px; margin-top:15px; margin-right:5px;' src='https://cdn.jsdelivr.net/gh/kasserXX99/cdn-config/assets/apple-pay.svg'></img> </div>";
-		let tem = iconsArray[iconsArray.length - 1];
+		tem = iconsArray[iconsArray.length - 1];
 		iconsArray[iconsArray.length - 1] = apple_pay_icon;
 		iconsArray.push(tem);
 	}
@@ -20,6 +26,8 @@ const loadIcons = () => {
 		`label.ec-radiogroup__item--app_id-custom-app-64158187-1 div.ec-radiogroup__info:empty`
 	).innerHTML = icons;
 };
+
+loadIcons();
 
 Ecwid.OnPageLoaded.add(function (page) {
 	if (page.type == 'CHECKOUT_PAYMENT_DETAILS') {
