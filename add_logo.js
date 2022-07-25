@@ -27,8 +27,6 @@ const loadIcons = () => {
 	).innerHTML = icons;
 };
 
-loadIcons();
-
 Ecwid.OnPageLoaded.add(function (page) {
 	if (page.type == 'CHECKOUT_PAYMENT_DETAILS') {
 		loadIcons();
