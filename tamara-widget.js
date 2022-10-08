@@ -3,13 +3,21 @@ Ecwid.OnPageLoaded.add(function (page) {
 		infoWidget();
 	}
 	if (page.type == 'CHECKOUT_PAYMENT_DETAILS') {
+		checkoutWidget();
 	}
 });
 
 const checkoutWidget = () => {
 	let checkoutBox = document.querySelector(
-		'label.ec-radiogroup__item--app_id-custom-app-64158187-1 div.ec-radiogroup__info:empty'
+		'label.ec-radiogroup__item--app_id-custom-app-64158187-2 div.ec-radiogroup__info:empty'
 	);
+	Ecwid.Cart.calculateTotal(function (order) {
+		if (order.total < 100) {
+			document.querySelector(
+				'label.ec-radiogroup__item--app_id-custom-app-64158187-2.ec-radiogroup__item--multiline'
+			).style.display = 'none';
+		} else checkoutBox.innerHTML = `<div style='width:100px;'> <img style='max-width:100%; max-height:100px; margin-right:5px;' src='https://cdn.jsdelivr.net/gh/kasserXX99/cdn-config/assets/tamara.svg'></img> </div>`;
+	});
 };
 
 const infoWidget = () => {
