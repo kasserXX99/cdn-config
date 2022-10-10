@@ -1,5 +1,6 @@
 Ecwid.OnPageLoaded.add(function (page) {
 	if (page.type === 'PRODUCT' || page.name === 'PRODUCT') {
+		console.log('it the product page');
 		infoWidget();
 	}
 	if (page.type == 'CHECKOUT_PAYMENT_DETAILS') {
@@ -33,8 +34,8 @@ const infoWidget = () => {
 	script.src = 'https://cdn.tamara.co/widget/tamara-widget.min.js';
 	document.head.appendChild(script);
 	setTimeout(() => {
-		if (window.TamaraProductWidget) {
-			window.TamaraProductWidget.render();
+		if (window.TamaraWidget) {
+			window.TamaraWidget.render();
 			document.querySelector('.tamara-widget').style.textAlign = 'center';
 		}
 	}, 2000); // Waiting for 2s - Make sure Tamara's widget is installed
