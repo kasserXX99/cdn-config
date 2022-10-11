@@ -17,7 +17,33 @@ const checkoutWidget = () => {
 			document.querySelector(
 				'label.ec-radiogroup__item--app_id-custom-app-64158187-2.ec-radiogroup__item--multiline'
 			).style.display = 'none';
-		} else checkoutBox.innerHTML = `<div style='width:100px;'> <img style='max-width:100%; max-height:100px; margin-right:5px;' src='https://cdn.jsdelivr.net/gh/kasserXX99/cdn-config/assets/tamara.svg'></img> </div>`;
+		} else {
+			checkoutBox.innerHTML = `<div
+				class="tamara-product-widget"
+				data-lang="ar"
+				data-price="${order.total}"
+				data-currency="SAR"
+				data-payment-type="installment"
+				data-disable-installment="false"
+				data-disable-paylater="false"
+				data-installment-minimum-amount="100"
+				data-installment-maximum-amount="3000"
+				data-installment-available-amount="99"
+				data-pay-later-max-amount="0"
+				data-show-border="false"
+				/>
+				</div>`;
+			let script = document.createElement('div');
+			script.type = 'text/javascript';
+			script.src = 'https://cdn.tamara.co/widget/product-widget.min.js';
+			document.head.appendChild(script);
+			setTimeout(() => {
+				if (window.TamaraProductWidget) {
+					window.TamaraProductWidget.render();
+					document.querySelector(`.tamara-logo`).style.top = '15px';
+				}
+			});
+		}
 	});
 };
 
