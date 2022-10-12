@@ -33,7 +33,7 @@ const checkoutWidget = () => {
 				data-show-border="false"
 				/>
 				</div>`;
-			let script = document.createElement('div');
+			let script = document.createElement('script');
 			script.type = 'text/javascript';
 			script.src = 'https://cdn.tamara.co/widget/product-widget.min.js';
 			document.head.appendChild(script);
