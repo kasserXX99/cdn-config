@@ -42,7 +42,7 @@ const checkoutWidget = () => {
 					window.TamaraProductWidget.render();
 					document.querySelector(`.tamara-logo`).style.top = '15px';
 				}
-			});
+			}, 1000);
 		}
 	});
 };
